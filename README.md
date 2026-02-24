@@ -19,5 +19,3 @@ Project Structure
     -report.html
     -settings.html
 --app.py
-<img width="209" height="317" alt="image" src="https://github.com/user-attachments/assets/4f31aa8e-2284-4ed7-a5d8-4b1bdef78734" />
-
