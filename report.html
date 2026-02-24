@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reports</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        .header {
+            background-color: #4e73df;
+            color: white;
+            padding: 15px 30px;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .top-links {
+            margin-bottom: 20px;
+        }
+
+        .top-links a {
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            background-color: #858796;
+            color: white;
+        }
+
+        .logout-btn {
+            background-color: #e74a3b;
+            color: white;
+        }
+
+        .back-btn:hover {
+            background-color: #6c757d;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .report-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .report-card:hover {
+            background-color: #e2e6f5;
+            transform: translateY(-3px);
+        }
+
+        .report-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4e73df;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>Reports Page</h2>
+    </div>
+
+    <div class="container">
+
+        <div class="top-links">
+            <a href="{{ url_for('dashboard') }}" class="back-btn">⬅ Back to Dashboard</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
+
+        <h3>Generate Reports</h3>
+
+        <div class="report-card">
+            <div class="report-title">📅 Daily Visitor Report</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-title">📊 Monthly Visitor Report</div>
+        </div>
+
+        <div class="report-card">
+            <div class="report-title">⏳ Pending Approvals Report</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

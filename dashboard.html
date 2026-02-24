@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        .header {
+            background: #4e73df;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-btn {
+            padding: 8px 15px;
+            border: none;
+            background: #e74a3b;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .main-container {
+            display: flex;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: white;
+            min-height: 100vh;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-item:hover {
+            background: #f1f1f1;
+        }
+
+        .nav-item.active {
+            background: #4e73df;
+            color: white;
+        }
+
+        .content {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4e73df;
+        }
+
+        .action-grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .action-card {
+            display: block;
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-card:hover {
+            background: #e2e6f5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div>
+            <h1>Visitor Management System</h1>
+            <p>Welcome back, {{ user.name }}!</p>
+        </div>
+
+        <div>
+            <span>{{ user.role }}</span>
+            <a href="{{ url_for('logout') }}">
+                <button class="logout-btn">Logout</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <a href="{{ url_for('dashboard') }}" class="nav-item active">
+                📊 Dashboard
+            </a>
+
+            <a href="{{ url_for('visitors') }}" class="nav-item">
+                👥 Visitors
+            </a>
+
+            <a href="{{ url_for('reports') }}" class="nav-item">
+                📋 Reports
+            </a>
+
+            <a href="{{ url_for('users_page') }}" class="nav-item">
+                👤 Users
+            </a>
+
+            <a href="{{ url_for('settings') }}" class="nav-item">
+                ⚙️ Settings
+            </a>
+
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <h2>Dashboard Overview</h2>
+
+            <!-- STATS -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">{{ data.total_visitors }}</div>
+                    <div>Total Visitors</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">{{ data.checked_in }}</div>
+                    <div>Checked In</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">{{ data.checked_out }}</div>
+                    <div>Checked Out</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">{{ data.pending_approvals }}</div>
+                    <div>Pending Approvals</div>
+                </div>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="action-grid">
+
+                <a href="{{ url_for('visitors') }}" class="action-card">
+                    👥 Manage Visitors
+                </a>
+
+                <a href="{{ url_for('users_page') }}" class="action-card">
+                    👤 Manage Users
+                </a>
+
+                <a href="{{ url_for('reports') }}" class="action-card">
+                    📊 Generate Report
+                </a>
+
+                <a href="{{ url_for('settings') }}" class="action-card">
+                    ⚙️ System Settings
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
